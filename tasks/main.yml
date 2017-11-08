@@ -21,6 +21,7 @@
   file:
     path: /tmp/composer-installer.php
     state: absent
+  changed_when: False
 
 - name: create cronjob to update composer
   cron:
