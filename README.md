@@ -10,9 +10,11 @@ Additionally, it installs a daily cronjob to update PHP Composer.
 # Defaults
 
 ```
+php_version: "{{ '5' if ansible_distribution_major_version|int <= 8 else '7.0' }}"
+
 # Packages to be installed before composer
 php_composer_deps:
-  - "{{ 'php5-cli' if ansible_distribution_major_version|int <= 8 else 'php-cli' }}"
+  - "php{{ php_version }}-cli"
 
 # The path where the composer binary is installed
 php_composer_path: /usr/local/bin
